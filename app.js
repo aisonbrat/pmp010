@@ -1,3 +1,4 @@
+const port = process.env.PORT || 5000;
 const express = require("express");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
@@ -132,4 +133,6 @@ app.use(isAuth, (req, res, next) => {
 // })
 // app.get("/admin", isAdmin);
 
-app.listen(5000, console.log("App Running on http://localhost:5000"));
+app.listen(port, console.log("App Running on http://localhost:5000"));
+
+
