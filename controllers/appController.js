@@ -84,13 +84,8 @@ exports.register_post = async (req, res) => {
 };
 
 exports.main_get = async (req, res) => {
-    const reviews = await Review.find().populate('user').populate({
-        path: 'comments',
-        model: 'Comment',
-        populate: {path: 'user', model: 'User'}
-    })
 
-    res.render('main', {reviews: reviews});
+    res.render('main');
 
     // try {
 
