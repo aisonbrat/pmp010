@@ -78,23 +78,24 @@ app.get('/contact', (req, res) => { //method send is convenience to send some st
 
 // connectDB();
 
-const store = new MongoDBStore({
-  uri: "mongodb://127.0.0.1:27017/reg",
-    // databaseName: "sessions",
-  collection: "users",
-});
+// const store = new MongoDBStore({
+//   // uri: "mongodb://127.0.0.1:27017/reg",
+//   url: "mongodb+srv://syerasyl:Aitu2022!@pmp-academy.e0u6t.mongodb.net/pmp-academy",
+//     // databaseName: "sessions",
+//   collection: "users",
+// });
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
-app.use(
-  session({
-    secret: "secret",
-    resave: false,
-    saveUninitialized: false,
-    store: store
-  })
-);
+// app.use(
+//   session({
+//     secret: "secret",
+//     resave: false,
+//     saveUninitialized: false,
+//     store: store
+//   })
+// );
 app.use(flash());
 //=================== Routes
 // Landing Page
