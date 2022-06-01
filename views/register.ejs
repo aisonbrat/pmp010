@@ -11,6 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/public/css/style.css">
     <title>Register | Node Auth</title>
+
+    <script src="https://kit.fontawesome.com/9ab56b06a3.js" crossorigin="anonymous"></script>
+
     
     </style>
   </head>
@@ -19,7 +22,7 @@
     <section>
     <div class="login-form">
       <% if(err) { %>
-      <p style="color: red;"><%= err %></p>
+      <p style="color: rgb(255, 255, 255); background: red;"><%= err %></p>
       <% } %>
         
       
@@ -39,19 +42,24 @@
       <a href="/login">Login</a>
     </div>
   </section>
+<!-- <%- include('blocks/footer.ejs') %> -->
+
   </body>
+  
 </html>
 
 <style>
   body {
-    background: url(/public/images/background4.png);
+    /* background: url(/public/images/background4.png); */
+    background: rgb(27, 24, 29);
         font-family: 'Poppins', sans-serif;
-        height: auto;
-        padding-bottom: 50%;
+        height: 800px;
      }
      *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
+
+   
 </style>

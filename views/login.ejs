@@ -7,14 +7,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;900&display=swap" rel="stylesheet"> 
     <!-- end fonts -->
+    <script src="https://kit.fontawesome.com/9ab56b06a3.js" crossorigin="anonymous"></script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/public/css/style.css">
-    <title>Login | Node Auth</title>
+    <title>login-form</title>
     
   </head>
   <body>
     <%- include('blocks/menu.ejs') %>
+
     <section>
     <div class="login-form">
       <% if(err) { %>
@@ -34,12 +37,17 @@
       <a href="/register">Register</a>
     </div>
   </section>
+  
   </body>
+<!-- <%- include('blocks/footer.ejs') %> -->
+
 </html>
 
 <style>
   body {
-    background: url(/public/images/background4.png);
+    /* background: url(/public/images/background4.png); */
+    background: rgb(27, 24, 29);
+
         font-family: 'Poppins', sans-serif;
         height: auto;
         padding-bottom: 50%;

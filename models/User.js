@@ -16,10 +16,8 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  // roles: {
-  //   type: String,
-  //   ref: 'Role',
-  // }
+  passedTests: [{type: Schema.Types.ObjectId, ref: 'Question'}],
+  roles: {type: []}
 });
 
 module.exports = mongoose.model("User", userSchema);

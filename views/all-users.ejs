@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--========== BOX ICONS ==========-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--========== CSS ==========-->
+
+    <!-- ============FONT AWESOME=========== -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--    <link rel="stylesheet" href="/public/css/admin-page-style.css">-->
+    <link rel="stylesheet" href="/public/css/edu-style.css">
+
+
+
+    <title>ADMIN PANEL</title>
+</head>
+<body>
+<%- include('blocks/admin-header') %>
+
+<!--========== CONTENTS ==========-->
+<main>
+    <!-- <h2 class="main-heading">ASDASD</h2> -->
+    <section>
+        <section class="main-container-right">
+            <h1 class="dispaly-5">All Users:</h1>
+            <!-- <% users.forEach(function(user) { %>
+                <a href="/user-edit/<%= user._id %>"><%= user.name %></a>
+            <br>
+            <% }); %> -->
+
+            <table class="table">
+                <tr>
+                  <th class="table__heading">#</th>
+                  <th class="table__heading">Username</th>
+                   <th class="table__heading">Email</th>
+                   <th class="table__heading">Edit</th>
+
+  
+                </tr>
+
+                <% users.forEach(function(user, i) { %>
+                
+                <tr class="table__row">
+                        <td class="table__content" data-heading="#"><%= i+1 %></td>
+                        <td class="table__content" data-heading="Name"><%= user.username %></td>
+                        <td class="table__content" data-heading="Email"><%= user.email %></td>
+                        <td class="table__content" data-heading="Edit"><a href="/user-edit/<%= user._id %>">Edit User</a></td>
+                        
+  
+            <% }); %>
+            
+        </tr>
+        </table>
+        </section>
+    </section>
+</main>
+
+<!--========== MAIN JS ==========-->
+<script src="assets/edu.js"></script>
+</body>
+</html>
+
+
+<style>
+
+</style>

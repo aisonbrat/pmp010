@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/public/css/edu-style.css">
+
+    <!--========== BOX ICONS ==========-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+
+    <title>PMP Academy</title>
+
+</head>
+<body>
+<%- include('blocks/header-main') %>
+<!--========== CONTENTS ==========-->
+<main>
+    <section>
+        <h1 class="display-5">Passed Tests:</h1>
+        <hr>
+        <!-- <% pass.forEach(function(p) {
+        if (p.user._id.equals(user._id)) {
+            let scores = 0;
+            for (let elem of p.correct) {
+                if (elem === 1) {
+                    scores++;
+                }
+            }
+
+        %>
+            <a href="/review/<%= p._id %>"><%= p.name %> | Scores: <%= scores %> / <%= p.correct.length %> | Date: <%= p.createdAt %> </a>
+            <br>
+        <% } %>
+        <% }); %> -->
+
+        <table class="table">
+            <tr>
+              <th class="table__heading">Name</th>
+              <th class="table__heading">Scores</th>
+              <th class="table__heading">Data</th>
+              <th class="table__heading">Review</th>
+
+
+            </tr>
+            <% pass.forEach(function(p) {
+                if (p.user._id.equals(user._id)) {
+                    let scores = 0;
+                    for (let elem of p.correct) {
+                        if (elem === 1) {
+                            scores++;
+                        }
+                    }
+        
+                %>
+            <tr class="table__row">
+              <td class="table__content" data-heading="Name"><%= p.name %> </td>
+              <td class="table__content" data-heading="Scores"><%= scores %> / <%= p.correct.length %></td>
+              <td class="table__content" data-heading="Data"><%= p.createdAt %></td>
+              <td class="table__content" data-heading="Review"> <a href="/review/<%= p._id %>">Review</a> </td>
+
+              <% } %>
+        <% }); %>
+            </tr>
+          </table>
+    </section>
+</main>
+<script src="/assets/edu-scripts/edu.js"></script>
+</body>
+</html>
+
+
+<style>
+  .column {
+  float: left;
+  width: 30%;
+  border: 1px solid #58555E;
+  border-radius: 5px;
+  margin: 20px;
+  background: rgb(243, 243, 243);
+  padding: 10px 15px 10px 15px;
+}
+
+/* Stops the float property from affecting content after the columns */
+.columns:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column:hover{
+    background: rgba(133, 223, 6, 0.225);
+    transition: 0.7s;
+}
+
+.ielts-rule {
+    position: relative;
+    margin: 50px 20px 50px 20px;
+    border: 1px solid #58555E;
+    border-radius: 5px;
+    padding: 10px 25px 10px 25px;
+}
+.table__row a {
+    background: rgb(145, 99, 206);
+    padding: 3px 5px 3px 5px;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+}
+.table__row a:hover {
+    background: transparent;
+    color: black;
+    transition: 0.09s;
+    box-shadow: inset 0px 0px 5px 2px rgb(0, 196, 0);
+    
+}
+</style>
