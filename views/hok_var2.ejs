@@ -18,12 +18,31 @@
 <!--========== CONTENTS ==========-->
 <main>
     <section>
-        <a class="back-button" href="/hok">BACK</a>
+        <a class="back-button" href="/rating">BACK</a>
         <div class="heading__available">
             <h2>TOP HOK Variant2</h2>
         </div>
         <br>
-        <table class="table">
+        <table id="customers">
+            <tr>
+              <th>#</th>
+              <th>Username</th>
+              <th>Scores</th>
+              <th>Date</th>
+            </tr>
+            <%  scores.forEach(function(s, i) { %>
+            <tr>
+              <td><%= i+1 %></td>
+              <td><%= s.user.username %></td>
+              <td><%= s.scores%> / 15</td>
+              <td><%= s.createdAt %></td>
+
+            </tr>
+            <% }) %>
+          
+          </table>
+          
+        <!-- <table class="table">
             <tr>
                 <th class="table__heading">#</th>
                 <th class="table__heading">Username</th>
@@ -37,13 +56,10 @@
                 <td class="table__content" data-heading="Score"><%= s.createdAt %></td>
             </tr>
             <% }) %>
-        </table>
+        </table> -->
     </section>
 </main>
+<%- include('blocks/footer-main') %>
 <script src="/assets/edu-scripts/edu.js"></script>
 </body>
 </html>
-
-<style>
-
-</style>

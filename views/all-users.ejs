@@ -26,35 +26,34 @@
 <main>
     <!-- <h2 class="main-heading">ASDASD</h2> -->
     <section>
-        <section class="main-container-right">
-            <h1 class="dispaly-5">All Users:</h1>
-            <!-- <% users.forEach(function(user) { %>
-                <a href="/user-edit/<%= user._id %>"><%= user.name %></a>
-            <br>
-            <% }); %> -->
-
-            <table class="table">
-                <tr>
-                  <th class="table__heading">#</th>
-                  <th class="table__heading">Username</th>
-                   <th class="table__heading">Email</th>
-                   <th class="table__heading">Edit</th>
-
-  
-                </tr>
-
-                <% users.forEach(function(user, i) { %>
+        <table id="customers">
+            <tr>
+                <th class="table__heading">#</th>
+                <th class="table__heading">Username</th>
+                 <th class="table__heading">Email</th>
+                 <th class="table__heading">Access</th>
+                 <th class="table__heading">Edit</th>
+                 <!-- <th class="table__heading">Passed tests</th> -->
+            </tr>
+            <% users.forEach(function(user, i) { %>
                 
-                <tr class="table__row">
-                        <td class="table__content" data-heading="#"><%= i+1 %></td>
-                        <td class="table__content" data-heading="Name"><%= user.username %></td>
-                        <td class="table__content" data-heading="Email"><%= user.email %></td>
+            <tr class="table__row">
+                <td class="table__content" data-heading="#"><%= i+1 %></td>
+                <td class="table__content" data-heading="Name"><%= user.username %></td>
+                <td class="table__content" data-heading="Email"><%= user.email %></td>
+                <% if(user.hasAccess===true) { %>
+
+                <td class="table__content" data-heading="Email" style="text-transform:uppercase; color: rgb(5, 191, 5);"><%= user.hasAccess %></td>
+                    <% } else {%>
+                <td class="table__content" data-heading="Email" style="text-transform:uppercase; color: red;"><%= user.hasAccess %></td>
+                <% }%>
                         <td class="table__content" data-heading="Edit"><a href="/user-edit/<%= user._id %>">Edit User</a></td>
-                        
-  
+                
+                <!-- <td class="table__content" data-heading="Edit"><a href="/user-edit/<%= user._id %>">Edit User</a></td> -->
             <% }); %>
-            
         </tr>
+            
+            
         </table>
         </section>
     </section>
@@ -62,10 +61,32 @@
 
 <!--========== MAIN JS ==========-->
 <script src="assets/edu.js"></script>
+<%- include('blocks/footer-main') %>
 </body>
 </html>
 
 
 <style>
-
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #b19be1;
+      color: white;
+    }
 </style>

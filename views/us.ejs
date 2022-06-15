@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+                                 <!-- CSS -->
+    <link rel="stylesheet" href="/public/css/style.css">
+     
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;900&display=swap" rel="stylesheet"> 
+    <!-- end fonts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+<!-- font awesome -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/9ab56b06a3.js" crossorigin="anonymous"></script>
+        <script type="text/javascript"></script>
+<!-- end awesome -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+
+       
+        <script src="https://kit.fontawesome.com/9ab56b06a3.js" crossorigin="anonymous"></script>
+        <script type="text/javascript"></script>
+    
+<title>PMP Academy</title>
+</head>
+
+<body class="body-us">  
+    
+    <!-- section header start -->
+        
+    <section class="header-us">
+
+    <nav>
+        <div>
+        <a href="/" class="logo"><h3>pmp</h3></a>
+        <a href="/" class="logo"><h3 class="academy1">academy</h3></a>
+    </div>
+        
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul  onclick="close_menu()">
+                <li><a class="menu-items" href="/">Home</a></li>
+                <li><a href="#" onclick="showAbout()">About us</a></li>
+                <li><a onclick="showFaq()" href="#">FAQ</a></li>
+                <li><a href="#">Payment Options</a></li>
+                <li><a href="#">UNT Practice Course</a></li>
+                <li><a href="/login"><h4 class="login">LOG IN</h4></a></li>
+        </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </div>
+    </nav>
+    <script>
+        var navLinks = document.getElementById("navLinks");
+    
+    function showMenu() {
+        navLinks.style.right = "0";
+        document.getElementById("navLinks").classList.toggle('active');
+    }
+    
+    function hideMenu() {
+        navLinks.style.right = "-300px";
+    }
+    function close_menu() {
+        navLinks.style.right = "-300px";
+    
+    }
+    </script>
+    </section>
+    <!-- =====HEADER MENU END -->
+        
+
+    <!-- =============START SECTION MENU=============== -->
+    <section class="menu-section-us">
+        <div class="menu-div-us">
+            <ul>
+                <a onclick="showAbout()" href="#"><li>About us</li></a>
+                <a onclick="showFaq()" href="#"><li>FAQ</li></a>
+                <a href="#"><li>Payment Options</li></a>
+                <a href="#"><li>UNT Practice Course</li></a>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        function showFaq() {
+         document.getElementById('faq-div').style.display = "block";
+         document.getElementById('about-div').style.display = "none";
+        }
+
+        function showAbout() {
+         document.getElementById('about-div').style.display = "block";
+         document.getElementById('faq-div').style.display = "none";
+        }
+    </script>
+    
+    <section class="right-section">
+        <!-- <div class="right-section-body"> -->
+<!-- ======FAQ DIVISION START======== -->
+            <div id="faq-div" style="display: none;">
+                <h1 class="title">FAQ</h1>
+                <div class="question-answer">
+                    <div class="question">
+                        <h3 class="title-question">
+                            Lorem ipsum dolor?
+                        </h3>
+                        <button class="question-btn">
+                            <span class="up-icon">
+                                <i class="fas fa-chevron-up"></i>
+                            </span>
+                            <span class="down-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="answer">
+                        <p>Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. 
+                            Quisquam assumenda sapiente 
+                            mollitia excepturi quos id 
+                            magnam obcaecati non est? 
+                            Maiores?</p>
+                    </div>
+                </div>
+                <div class="question-answer">
+                    <div class="question">
+                        <h3 class="title-question">
+                            Lorem ipsum dolor ipsum dolor?
+                        </h3>
+                        <button class="question-btn">
+                            <span class="up-icon">
+                                <i class="fas fa-chevron-up"></i>
+                            </span>
+                            <span class="down-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="answer">
+                        <p>Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. 
+                            Quisquam assumenda sapiente 
+                            mollitia excepturi quos id 
+                            magnam obcaecati non est? 
+                            Maiores?</p>
+                    </div>
+                </div>
+                <div class="question-answer">
+                    <div class="question">
+                        <h3 class="title-question">
+                            Lorem ipsum dolor Lorem ipsum dolor?
+                        </h3>
+                        <button class="question-btn">
+                            <span class="up-icon">
+                                <i class="fas fa-chevron-up"></i>
+                            </span>
+                            <span class="down-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="answer">
+                        <p>Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. 
+                            Quisquam assumenda sapiente 
+                            mollitia excepturi quos id 
+                            magnam obcaecati non est? 
+                            Maiores?</p>
+                    </div>
+                </div>
+                <div class="question-answer">
+                    <div class="question">
+                        <h3 class="title-question">
+                            Lorem ipsum?
+                        </h3>
+                        <button class="question-btn">
+                            <span class="up-icon">
+                                <i class="fas fa-chevron-up"></i>
+                            </span>
+                            <span class="down-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="answer">
+                        <p>Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. 
+                            Quisquam assumenda sapiente 
+                            mollitia excepturi quos id 
+                            magnam obcaecati non est? 
+                            Maiores?</p>
+                    </div>
+                </div>
+                <div class="question-answer">
+                    <div class="question">
+                        <h3 class="title-question">
+                            Lorem ipsum dolor?
+                        </h3>
+                        <button class="question-btn">
+                            <span class="up-icon">
+                                <i class="fas fa-chevron-up"></i>
+                            </span>
+                            <span class="down-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="answer">
+                        <p>Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. 
+                            Quisquam assumenda sapiente 
+                            mollitia excepturi quos id 
+                            magnam obcaecati non est? 
+                            Maiores?</p>
+                    </div>
+                </div>
+            </div>
+        <script>
+            const questions = document.querySelectorAll('.question-answer');
+
+questions.forEach(function(question) {
+    const btn = question.querySelector('.question-btn');
+    btn.addEventListener("click", function() {
+        questions.forEach(function(item) {
+            if (item !== question) {
+                item.classList.remove("show-text");
+            }
+        })
+        question.classList.toggle("show-text");
+    })
+})
+        </script>
+<!-- ======FAQ DIVISION END======== -->
+
+<!-- =========ABOUT US DIV START -->
+<div id="about-div" style="display: none;">
+    <div class="about-div-us">
+                <h1 class="title">ABOUT PMP ACADEMY</h1>
+                <ul>
+                    <li>PMP Academy - the online platform.</li>
+                    <li>The main goal of our academy is to coordinate students through their preparation.</li>
+                    <li>This software is the project of 3 students who want to help their peers.</li>
+                    <li>We, as the previous test takers, felt the whole pallet of pressure created by the lack of progress          and coordination, we and do not want the future generations to feel the same.</li>
+                </ul>
+                <!-- PMP Academy - the online platform.
+            <br>
+            The main goal of our academy is to coordinate students through their preparation.
+            <br>
+
+            This software is the project of 3 students who want to help their peers.
+            <br>
+
+            We, as the previous test takers, felt the whole pallet of pressure created by the lack of progress          and coordination, we and do not want the future generations to feel the same. -->
+    </div>
+</div>
+
+<!-- =========ABOUT US DIV END -->
+</section>
+    <!-- =============END SECTION MENU=============== -->
+</body>
+</html>
+
+<style>
+   
+    
+</style>

@@ -26,7 +26,6 @@
                     <!-- <div class="icon-article">
                         <img style="padding-top: 20px" src="/public/images/comment.png" alt="">
                     </div> -->
-                    <div>
                         <div class="review-field">
                         <div class="bynamedate"><p>by <span class="byname"><%= review.user.username %></span>, <span class="bydata"><%= review.dateCreated %></span></p></div>
 
@@ -40,7 +39,6 @@
                             <p class="bynamedate"><a><%= comment.user.username %> </a> |<span class="bydata"><%= comment.date %></span></p>
                                 <p><%= comment.text %></p>
 
-                    </div>
                     <% }) %>
                      
                         <form action="/postComment/<%= review._id %>" method="POST">
@@ -54,7 +52,7 @@
                             <textarea class="textarea" id="text" name="text" placeholder="Write comment here..."></textarea>
                             <input type="hidden" name="_method" value="DELETE">
                             
-                            <button class="comment-button" type="submit"><i class="iconbtn">POST</i> <i class='bx bx-send iconbtn'></i></button>
+                            <button class="comment-button" type="submit"><i class="iconbtn"></i> <i class='bx bx-send iconbtn'></i></button>
                         </div>
                         </form>
                     </div>
@@ -70,12 +68,15 @@
             <textarea class="textarea-review" id="text" name="text" placeholder="Write comment here..."></textarea>
             <br>
             <input type="hidden" name="_method" value="DELETE">
-            <button type="submit">Post Review</button>
+            <div class="button-delete-publish">
+                <button type="submit"> Review</button>
+            </div>
         </form>
     </div>
         </section>
     </section>
 </main>
+<%- include('blocks/footer-main') %>
 
 <!--========== MAIN JS ==========-->
 <script src="assets/edu.js"></script>

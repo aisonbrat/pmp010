@@ -23,8 +23,10 @@
 <!--========== CONTENTS ==========-->
 <main>
     <h2 class="main-heading">User Edit</h2>
-        <section>
+        <section class="center">
             <!-- <div class="new-div"> -->
+        <center class="container">
+
             <div class="box">
                 <form action="/user-edit/<%= user.id %>" method="POST">
                     <input type="hidden" name="_method" value="PUT">
@@ -39,6 +41,10 @@
                     <label for="type" class="text-white">Roles: </label>
                     <input type="text" class="form-control" placeholder="Roles" name="roles" value="<%= user.roles %>"
                            required>
+                    <br><br>
+                    <label for="type" class="text-white">Has Access: </label>
+                    <input type="text" class="form-control" placeholder="true/false" name="hasAccess" value="<%= user.hasAccess %>"
+                           required>
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary"> Update</button>
@@ -50,41 +56,48 @@
                     </div>
                 </form>
             </div>
+            </center>
         </section>
 </main>
 
 <!--========== MAIN JS ==========-->
+<%- include('blocks/footer-main') %>
 </body>
 </html>
 
 <style>
+    .container {
+        padding: 20px 20px 20px 20px;
+        background: rgb(255, 255, 255);
+        border-radius: 20px;
+    }
 .box{
     text-align: right;
-padding-right: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    /* width: 153px;
+    height: 153px; */
+    width: 360px;
+    
+    height: 600px;
+    /* border:2px solid #3498db; */
+    /* box-shadow: -3px -3px 7px #ffffff73,
+    3px 3px 5px rgba(94,104,121,0.288); */
+    box-shadow:  0 20px 20px -10px rgba(0, 0, 0, 0.533);
+    background: rgb(227, 224, 244);
+    /* border-radius: 50%; */
+    margin-top: 50px;
+    overflow: hidden;
+    transition: all 1s;
 
-box-sizing: border-box;
-/* width: 153px;
-height: 153px; */
-width: 360px;
-height: 600px;
-/* border:2px solid #3498db; */
-/* box-shadow: -3px -3px 7px #ffffff73,
-3px 3px 5px rgba(94,104,121,0.288); */
-box-shadow: 0 10px 20px -10px rgba(0,0,0,.75);
-background: rgb(255, 255, 255);
-/* border-radius: 50%; */
-margin-top: 50px;
-overflow: hidden;
-transition: all 1s;
 
-
-}
-.box:hover{
-width: 360px;
-height: 600px;
-border-radius: 5px;
-}
-.box img{
+    }
+    .box:hover{
+    width: 360px;
+    height: 600px;
+    border-radius: 5px;
+    }
+ img{
 box-sizing: border-box;
 width:149px;
 height:149px;
@@ -99,14 +112,14 @@ width: 100px;
 height: 100px;
 margin:20px 35% ;
 } */
-.box hr{
+ hr{
 width:500px;
 line-height:20px;
 margin:10px 10px 10px 10px;
 }
-.box input[type="text"],
-.box input[type="email"],
-.box input[type="password"] {
+ input[type="text"],
+ input[type="email"],
+x input[type="password"] {
 box-sizing: border-box;
 color: #3498db;
 margin-top: 50px;
@@ -137,7 +150,7 @@ border-top: none;
 }
 
 
-.box button{
+ button{
 border:1px solid #3498db;
 background-color: black;
 color:white;
@@ -148,11 +161,11 @@ left:0;
 margin:0px;
 transition: all .3s;
 }
-.box button:hover{
+ button:hover{
 transform: scale(1.1);
 background-color: #566573;
 }
-.box input[type="file"]{
+ input[type="file"]{
 display:none;
 }
 </style>

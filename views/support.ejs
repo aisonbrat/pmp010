@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/edu-style.css">
+    
+     <!--========== BOX ICONS ==========-->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+
+    <title>Profile</title>
+    
+  </head>
+  <body>
+    <%- include('blocks/header-main') %>
+     <!--========== CONTENTS ==========-->
+     <main>
+        <section>
+            <h1>Send message to Support team</h1>
+            <div class="container">
+                <form action="https://formspree.io/f/mzbowqze" method="POST">
+                  <label for="fname">Username</label>
+                  <input type="text" id="fname" name="firstname" placeholder="Username..">
+              
+                  <label for="lname">Email</label>
+                  <input type="text" id="lname" name="email" placeholder="Your email address..">
+              
+              
+                  <label for="subject">Subject</label>
+                  <textarea id="subject" name="subject" placeholder="Write the issue . . ." style="height:200px"></textarea>
+              
+                  <input type="submit" value="Submit">
+                </form>
+              </div>
+        </section>
+    </main>
+<%- include('blocks/footer-main') %>
+
+    <script src="/assets/edu-scripts/edu.js"></script>
+  </body>
+</html>
+
+<style>
+  * {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #45a049;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(112, 112, 205);
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+</style>

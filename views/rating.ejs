@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/css/edu-style.css">
+    
+     <!--========== BOX ICONS ==========-->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+
+    <title>Profile</title>
+    
+  </head>
+  <body>
+    <%- include('blocks/admin-header') %>
+     <!--========== CONTENTS ==========-->
+     <main>
+        <section>
+            <h2 class="main-heading">View rating of users</h2>
+
+            <table id="customers">
+              <tr>
+                <th>Course name</th>
+                <th>Variant</th>
+                <th>View</th>
+              </tr>
+              <tr class="table__row">
+                <td>History of Kazakhstan</td>
+                <td>Variant 1</td>
+                <td><a href="/hok_var1">View Rating</a></td>
+
+              </tr>
+              <tr class="table__row">
+                <td>History of Kazakhstan</td>
+                <td>Variant 2</td>
+                <td><a href="/hok_var2">View Rating</a></td>
+              </tr>
+              <tr class="table__row">
+                <td>History of Kazakhstan</td>
+                <td>Variant 3</td>
+                <td><a href="/hok_var3">View Rating</a></td>
+              </tr>
+              <tr class="table__row">
+                <td>Mathematical Literacy</td>
+                <td>Variant 1</td>
+                <td><a href="/ml_var1">View Rating</a></td>
+              </tr>
+              <tr class="table__row">
+                <td>Mathematical Literacy</td>
+                <td>Variant 2</td>
+                <td><a href="/ml_var2">View Rating</a></td>
+              </tr>
+              <tr class="table__row">
+                <td>Reading Literacy</td>
+                <td>Variant 1</td>
+                <td><a href="/rl_var1">View Rating</a></td>
+              </tr>
+              <tr>
+            </table>
+        </section>
+    </main>
+<%- include('blocks/footer-main') %>
+
+    <script src="/assets/edu-scripts/edu.js"></script>
+  </body>
+</html>
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #b19be1;
+      color: white;
+    }
+
+    
+    </style>
+    

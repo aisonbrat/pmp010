@@ -17,7 +17,8 @@ const userSchema = new Schema({
     required: true,
   },
   passedTests: [{type: Schema.Types.ObjectId, ref: 'Question'}],
-  roles: {type: []}
+  roles: {type: []},
+  hasAccess: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model("User", userSchema);

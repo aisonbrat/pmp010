@@ -19,20 +19,21 @@
 <main>
     <section>
         <div class="no-container">
-            <section id="p0">
+            <h2><%= variant[0].dependent%></h2>
                 <form method="post", action="/check-answers/<%= variant[0].dependent%>">
                 <% variant.forEach(function(v, i) { %>
-                    <h3><%= i+1 %>. <%= v.question %></h3>
+            <section id="p0">
+                <h3><%= i+1 %>. <%= v.question %></h3>
                     <% v.options.forEach(function(op) { %>
                         <label>
                             <input type="radio" value="<%= op %>" name="<%= v.question%>" required><%= op %>
                         </label>
                     <% }); %>
-                <% }); %>
+            </section>
+            <% }); %>
                         <button type="submit"><h3>FINISH</h3></button>
                 </form>
 
-            </section>
 
 
             <h2>Scores: <span id="resulta"></span></h2>
@@ -45,6 +46,7 @@
 };
 </script>
 </main>
+<%- include('blocks/footer-main') %>
 </body>
 </html>
 
@@ -56,20 +58,21 @@
         margin-bottom: 50px;
         padding: 20px;
         box-shadow: 0 10px 20px -10px rgba(0, 0, 0, .75);
+        background: #f0f0fd;
         user-select: none;
         margin: 50px auto;
-        background: #f0f0fd;
         border-radius: 5px;
         height: auto;
         width: auto;
     }
 
     .no-container section {
-        border: 2px solid red;
+        border: 2px solid rgb(154, 146, 174);
         border-radius: 10px;
         padding: 10px;
         margin: 10px 0;
         background: white;
+        margin-bottom: 35px;
     }
 
     .no-container label {

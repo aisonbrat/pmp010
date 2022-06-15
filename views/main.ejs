@@ -1,50 +1,50 @@
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--========== BOX ICONS ==========-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <!--========== BOX ICONS ==========-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-    <!--========== CSS ==========-->
-<link rel="stylesheet" href="/public/css/edu-style.css">
+        <!--========== CSS ==========-->
+    <link rel="stylesheet" href="/public/css/edu-style.css">
 
 
-    <title>EDU</title>
-</head>
-<body>
-  <%- include('blocks/header-main') %>
+        <title>EDU</title>
+    </head>
+    <body>
+      <%- include('blocks/header-main') %>
 
-    <!--========== CONTENTS ==========-->
-    <main>
-        <h2 class="main-heading">Site announcements </h2>
-        <section>
-            <section class="main-container-right">
+        <!--========== CONTENTS ==========-->
+        <main>
+            <h2 class="main-heading">Site announcements </h2>
+            <section>
+                <section class="main-container-right">
 
-            <% posts.forEach(function(post) { %>
-            <article>
-                <div class="icon-article">
-                    <!-- <img src="/public/images/f1.png" alt=""> -->
-                </div>
-                <div>
-                    <h2><span class="bytitle"><%= post.title %></span></h2>
+                <% posts.forEach(function(post) { %>
+                <article>
+                    <div class="icon-article">
+                        <!-- <img src="/public/images/f1.png" alt=""> -->
+                    </div>
+                    <div>
+                        <h2><span class="bytitle"><%= post.title %></span></h2>
 
-                <div><p>by <span class="byname"><%= post.user.username %></span>, <span class="bydata"><%= post.dateCreated %></span></p></div>
+                    <div><p>by <span class="byname"><%= post.user.username %></span>, <span class="bydata"><%= post.dateCreated %></span></p></div>
+ 
+                    <p class="bytext"><%= post.text %></p>
 
-                <p class="bytext"><%= post.text %></p>
+                        <!-- <a href = "#">Read More <span>>></span></a> -->
+                    </div>
+                </article>
+                <% }) %>
+            </section>  
+            </section>
+        </main>
 
-                    <!-- <a href = "#">Read More <span>>></span></a> -->
-                </div>
-            </article>
-            <% }) %>
-        </section>  
-        </section>
-    </main>
-
-    <!--========== MAIN JS ==========-->
-    <script src="assets/edu.js"></script>
+        <!--========== MAIN JS ==========-->
+        <script src="assets/edu.js"></script>
 <%- include('blocks/footer-main') %>
 </body>
 </html>

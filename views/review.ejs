@@ -36,10 +36,10 @@
                         <label>
                             <% if (correct[count] === 1) { %>
                                 <% if (op === ans[count]){ %>
-                                    <input style="accent-color: green" type="radio" value="<%= op %>"
+                                    <input style="accent-color: green;" type="radio" value="<%= op %>"
                                            name="<%= v.question %>" checked><%= op %> ✓
                                 <% } else { %>
-                                    <input style="accent-color: red" type="radio" value="<%= op %>"
+                                    <input style="accent-color: red; " type="radio" value="<%= op %>"
                                            name="<%= v.question %>" disabled><%= op %>
                                 <% } %>
                             <% } else { %>
@@ -64,7 +64,7 @@
 
 
             <h2>Scores: <span id="resulta"><%= scores %> / <%= ans.length %></span></h2>
-            <Button><a href="/passed">FINISH REVIEW</a></Button>
+            <a href="/passed"><Button>FINISH REVIEW</Button></a>
         </div>
 
     </section>
@@ -72,6 +72,7 @@
 
     </script>
 </main>
+<%- include('blocks/footer-main') %>
 </body>
 </html>
 

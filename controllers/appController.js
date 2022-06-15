@@ -4,7 +4,7 @@ const Passed = require('../models/Passed');
 const Review = require('../models/Review');
 const Post = require('../models/Post');
 const Comment = require('../models/Comment');
-// const PostComment = require('../models/Post-Comment');
+const PostComment = require('../models/Post-Comment');
 const User = require("../models/User");
 
 exports.login_get = (req, res) => {
