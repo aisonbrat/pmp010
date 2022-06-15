@@ -19,27 +19,38 @@
     <%- include('blocks/menu.ejs') %>
 
     <section>
+      
     <div class="login-form">
       <% if(err) { %>
-      <p style="color: red;"><%= err %></p>
+      <p style="color: #D8000C;
+      background-color: #FFD2D2; margin: 10px 0px;
+padding:12px;"><%= err %></p>
       <% } %>
+      <% if(suc) { %>
+        <p style="color: #4F8A10;
+        background-color: #DFF2BF; margin: 10px 0px;
+padding:12px;"><%= suc %></p>
+        <% } %>
       
       <form class="input-group" action="/login" method="POST">
-        <div class="input-group">
-          <h3>Login Page</h3>
+        <h3>LOGIN</h3>
+        <div class="input-area">
+          <label for="Username">Email</label>
           <input type="email" name="email" placeholder="Enter Email" />
         </div>
-        <div class="input-group">
-          <input type="password" name="password" placeholder="Password"/>
+        <div class="input-area">
+          <label for="Username">Password</label>
+          <input type="password" name="password" placeholder="Password" />
         </div>
         <button>Login</button>
       </form> 
-      <a href="/register">Register</a>
+      <div class="log-reg-div">
+        <a href="/register">Register</a>
+      </div>
     </div>
   </section>
   
   </body>
-<!-- <%- include('blocks/footer.ejs') %> -->
 
 </html>
 

@@ -22,27 +22,36 @@
     <section>
     <div class="login-form">
       <% if(err) { %>
-      <p style="color: rgb(255, 255, 255); background: red;"><%= err %></p>
+      <p style="color: rgb(255, 255, 255); background: red; margin: 10px 0px;
+      padding:12px;"><%= err %></p>
       <% } %>
+      
+     
         
       
       <form class="input-group" action="/register" method="POST">
-        <div class="input-group">
-          <h3>Register Page</h3>
-          <input type="text" name="username"placeholder="Username" />
+          <h3>REGISTER</h3>
+        <div class="input-area">
+          <label for="Username">Username</label>
+          <input type="text" name="username"placeholder="Username"/>
         </div>
-        <div class="input-group">
+        <div class="input-area">
+          <label for="Username">Email</label>
           <input type="email" name="email" placeholder="Enter Email" />
         </div>
-        <div class="input-group">
+        <div class="input-area">
+          <label for="Username">Password</label>
           <input type="password" name="password" placeholder="Password" />
         </div>
+        <div class="register-button-div">
         <button>Register</button>
+      </div>
       </form>
+      <div class="log-reg-div">
       <a href="/login">Login</a>
     </div>
+    </div>
   </section>
-<!-- <%- include('blocks/footer.ejs') %> -->
 
   </body>
   

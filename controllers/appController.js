@@ -2,25 +2,20 @@ const bcrypt = require("bcryptjs");
 const Question = require("../models/Question");
 const Passed = require('../models/Passed');
 const Review = require('../models/Review');
+const Post = require('../models/Post');
 const Comment = require('../models/Comment');
-
+// const PostComment = require('../models/Post-Comment');
 const User = require("../models/User");
-
-// const {check} = require("express-validator")
-
-// const {validationResult} = require('express-validator')
-
-exports.landing_page = (req, res) => {
-    res.render("landing");
-};
 
 exports.login_get = (req, res) => {
     const error = req.session.error;
+    const suc = req.session.suc;
+    
+
     delete req.session.error;
-    res.render("login", {err: error, data: req.body});
+    res.render("login", {suc:suc, err: error, data: req.body});
 
 };
-
 exports.login_post = async (req, res) => {
     const {email, password} = req.body;
 
@@ -47,18 +42,9 @@ exports.login_post = async (req, res) => {
 exports.register_get = (req, res) => {
     const error = req.session.error;
     delete req.session.error;
-    res.render("register", {err: error});
+    res.render("register", { err: error});
 };
-
 exports.register_post = async (req, res) => {
-    // const errors = validationResult(req)
-    // if (!errors.isEmpty()) {
-    //   return res.status(400).json({message: "error when register", errors})
-    // }
-    // [
-    //   check('username', "Username cannot be empty").notEmpty(),
-    //   check('password', "Password must be more than 7 characters and less than 20 characters").isLength({min:7, max:20})
-    // ]
     const {username, email, password} = req.body;
     let user = await User.findOne({email});
 
@@ -66,9 +52,9 @@ exports.register_post = async (req, res) => {
         req.session.error = "User already exists";
         return res.redirect("/register");
     }
+    
     const hasdPsw = await bcrypt.hash(password, 12);
 
-    // const  userRole = await Role.findOne({value: "USER"})
     user = new User({
         username,
         email,
@@ -77,23 +63,28 @@ exports.register_post = async (req, res) => {
     });
 
     await user.save();
-    // if(!error)
-    // req.flash('message', 'Registered successfully')
-
-    res.redirect("/login");
+    if (user) {
+        req.session.suc = "You have successfully registered";
+        res.redirect("/login");
+}
 };
-
 exports.main_get = async (req, res) => {
-
-    res.render('main');
-
-    // try {
-
-    //   res.json(('sss'))
-    // } catch (error) {
-    //   console.log(error)
-    // }
+    const posts = await Post.find().populate('user').populate({
+        path: 'posts',
+        model: 'Post',
+        populate: {path: 'user', model: 'User'}
+    })
+    res.render('main', {posts: posts});
 };
+exports.publish_get = async (req, res) => {
+    const posts = await Post.find().populate('user').populate({
+        path: 'posts',
+        model: 'Post',
+        populate: {path: 'user', model: 'User'}
+    })
+    res.render('publish', {posts: posts});
+};
+
 exports.comment_get = async (req, res) => {
     const reviews = await Review.find().populate('user').populate({
         path: 'comments',
@@ -102,26 +93,28 @@ exports.comment_get = async (req, res) => {
     })
 
     res.render('comment', {reviews: reviews});
+};
+exports.comment_edit_get = async (req, res) => {
+    const reviews = await Review.find().populate('user').populate({
+        path: 'comments',
+        model: 'Comment',
+        populate: {path: 'user', model: 'User'}
+    })
 
-    // try {
-
-    //   res.json(('sss'))
-    // } catch (error) {
-    //   console.log(error)
-    // }
+    res.render('edit-comment', {reviews: reviews});
 };
 
-exports.userprofile_get = (req, res) => {
-    // const username = req.session.username;
-    // const email = req.session.email;
-    if (req.session.user) {
-        // res.render('user-profile', { data : req.session.body });
-    } else {
-        res.send("Unauthorize User")
-        // res.render('user-profile', { user : req.session.username });
+// exports.userprofile_get = (req, res) => {
+//     // const username = req.session.username;
+//     // const email = req.session.email;
+//     if (req.session.user) {
+//         // res.render('user-profile', { data : req.session.body });
+//     } else {
+//         res.send("Unauthorize User")
+//         // res.render('user-profile', { user : req.session.username });
 
-    }
-};
+//     }
+// };
 exports.profile_get = async (req, res) => {
     const user = await User.findOne({email: req.session.user.email})
     res.render('profile', {user: user})
@@ -131,7 +124,6 @@ exports.settings_page = async (req, res) => {
     const user = await User.findOne({email: req.session.user.email})
     res.render('account-settings', {user: user})
 }
-
 exports.settings_post = async (req, res) => {
     try {
         await User.findOneAndUpdate({email: req.session.user.email},
@@ -139,7 +131,7 @@ exports.settings_post = async (req, res) => {
                 email: req.body.email,
                 username: req.body.nickname,
             })
-        res.redirect('/account-settings');
+        res.redirect('/login');
     } catch (e) {
         console.log(e)
     }
@@ -172,8 +164,8 @@ exports.logout_post = (req, res) => {
 };
 
 exports.admin_users = async (req, res) => {
-    const var1 = await Question.find()
-    console.log(var1)
+    // const var1 = await Question.find()
+    // console.log(var1)
     const users = await User.find()
     res.render('all-users', {users: users});
 };
@@ -189,7 +181,8 @@ exports.user_update = async (req, res) => {
             {
                 email: req.body.email,
                 username: req.body.nickname,
-                roles: req.body.roles
+                roles: req.body.roles,
+                hasAccess: req.body.hasAccess
             })
         res.redirect('/admin-users');
     } catch (e) {
@@ -234,19 +227,6 @@ exports.sat2 = async (req, res) => {
 
     res.render('mcq', {variant: neededVar});
 };
-// 
-
-// ---HOK VAR------------
-// exports.hok1 = async (req, res) => {
-//     const variant1 = await Question.find()
-//     let neededVar = []
-//     variant1.forEach(function (v) {
-//         if (v.dependent === "HOK Variant1") {
-//             neededVar.push(v)
-//         }
-//     })
-//     res.render('mcq', {variant: neededVar});
-// };
 
 
 // ====HOK VARIANTS======
@@ -477,3 +457,63 @@ exports.postComment = async (req, res) => {
         console.log(e)
     }
 }
+
+exports.delete_comment = async (req, res) => {
+    try {
+            await Comment.deleteOne({_id: req.params.id})
+            res.redirect('/edit-comment');
+    } catch (e) {
+        console.log(e)
+    }
+};
+
+exports.delete_review = async (req, res) => {
+    try {
+            await Review.deleteOne({_id: req.params.id})
+            await Comment.deleteOne({_id: req.params.id})
+            res.redirect('/edit-comment');
+    } catch (e) {
+        console.log(e)
+    }
+};
+
+exports.publishPost = async (req, res) => {
+    try {
+        const user = await User.findOne({email: req.session.user.email})
+
+        await Post.create({
+            title: req.body.title,
+            text: req.body.text,
+            user: user
+        })
+        res.redirect('back')
+    } catch (e) {
+        console.log(e)
+    }
+}
+// exports.publishComment = async (req, res) => {
+//     try {
+//         const user = await User.findOne({email: req.session.user.email})
+//         const post = await Post.findOne({_id: req.params.id})
+
+//         const comment = await PostComment.create({
+//             text: req.body.text,
+//             user: user,
+//             post: post
+//         })
+//         await Post.findOneAndUpdate(
+//             {_id: req.params.id},
+//             {$push: {comments: comment}})
+//         res.redirect('back')
+//     } catch (e) {
+//         console.log(e)
+//     }
+// }
+exports.delete_post = async (req, res) => {
+    try {
+            await Post.deleteOne({_id: req.params.id})
+            res.redirect('/publish');
+    } catch (e) {
+        console.log(e)
+    }
+};

@@ -2,12 +2,12 @@
     <div class="header__container">
         <img src="/public/images/perfil.jpg" alt="" class="header__img">
 
-        <a href="#" class="header__logo"><h3>pmp academy</h3></a>
+        <a href="#" class="header__logo"><h3>ADMIN PANEL</h3></a>
 
-        <div class="header__search">
+        <!-- <div class="header__search">
             <input type="search" placeholder="Search" class="header__input">
             <i class='bx bx-search header__icon'></i>
-        </div>
+        </div> -->
 
         <div class="header__toggle">
             <i class='bx bx-menu' id="header-toggle"></i>
@@ -28,18 +28,36 @@
                 <div class="nav__items">
                     <h3 class="nav__subtitle">Admin Panel</h3>
 
-                    <a href="/main" class="nav__link active">
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
                         <i class='bx bx-home nav__icon'></i>
-                        <span class="nav__name">Home</span>
-                    </a>
-                    <a href="/admin" class="nav__link">
+                        <span class="nav__name">Post</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="/main" class="nav__dropdown-item">Home</a>
+                                 <a href="/publish" class="nav__dropdown-item">Publish a post</a>
+                                 <!-- <a href="#" class="nav__dropdown-item">Progress</a> -->
+                                <!-- <a href="/tests" class="nav__dropdown-item">Edit Tests</a> -->
+
+
+                                <!-- <a href="#" class="nav__dropdown-item">SAT &#10006;</a>
+                                <a href="#" class="nav__dropdown-item">UNT &#10006;</a> -->
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <!-- <a href="/admin" class="nav__link">
                         <i class='bx bx-admin nav__icon' ></i>
                         <span class="nav__name">ADMIN-PAGE</span>
-                    </a>
+                    </a> -->
 
                     <div class="nav__dropdown">
                         <a href="#" class="nav__link">
-                            <i class='nav__course'><img src="/public/images/clipboard.png" alt=""></i>
+                            <i class='bx bx-file nav__icon'></i>
                             <span class="nav__name">Test</span>
                             <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                         </a>
@@ -71,13 +89,33 @@
                         <div class="nav__dropdown-collapse">
                             <div class="nav__dropdown-content">
                                 <a href="/admin-users" class="nav__dropdown-item">Edit Users</a>
+                                <a href="/rating" class="nav__dropdown-item">View results</a>
                             </div>
                         </div>
                     </div>
-                    <a href="/comment" class="nav__link">
+                    <!-- <a href="/comment" class="nav__link">
                         <i class='bx bx-comment nav__icon' ></i>
                         <span class="nav__name">Comment</span>
-                    </a>
+                    </a> -->
+
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-comment nav__icon' ></i>
+                            <span class="nav__name">Review</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+                        
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <!-- <a href="#" class="nav__dropdown-item">Mail</a> -->
+                                <a href="/comment" class="nav__dropdown-item">Review</a>
+                                <a href="/edit-comment" class="nav__dropdown-item">Edit Review</a>
+                                <!-- <a href="#" class="nav__dropdown-item">Payment Method</a> -->
+                            </div>
+                        </div>
+                </div>
+
                     <div class="nav__dropdown">
                         <a href="#" class="nav__link">
                             <i class='bx bx-video nav__icon' ></i>
@@ -99,11 +137,13 @@
                 
             </div>
         </div>
+        </div>
         <form action="/logout" method="POST">
             <div class="nav__link nav__logout">
                 <i class='bx bx-log-out nav__icon'></i>
                 <button class="nav__name">Log Out</button>
             </div>
+           
         </form>
 
         <!-- <form class="logout-class" action="/logout" method="POST">

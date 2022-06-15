@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--========== BOX ICONS ==========-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--========== CSS ==========-->
+<link rel="stylesheet" href="/public/css/edu-style.css">
+
+
+    <title>EDU</title>
+</head>
+<body>
+  <%- include('blocks/admin-header') %>
+
+    <!--========== CONTENTS ==========-->
+    <main>
+        <h2 class="main-heading">Site announcements </h2>
+        <section>
+            <section class="main-container-right">
+                <% posts.forEach(function(post) { %>
+                    <div>
+                        <!-- <div class="icon-article">
+                            <img style="padding-top: 20px" src="/public/images/comment.png" alt="">
+                        </div> -->
+                        <div>
+                            <div class="review-field">
+                            <div class="bynamedate"><p>by <span class="byname"><%= post.user.username %></span>, <span class="bydata"><%= post.dateCreated %></span></p></div>
+    
+                            <h2><span class="bytitle">TItle: <%= post.title %></span></h2>
+    
+                            <p class="bytext"><%= post.text %></p>
+                            <!-- ===REview=== -->
+                            <form method="post" action="/delete-post/<%= post.id %>">
+                                <div class="button-delete-publish">
+                                    <button type="submit">Delete</button>
+                                </div>
+                            </form>
+                            
+                            <!-- ====Coment==== -->
+                            <div class="comment-field-gen">
+                            
+                         
+                            
+                        </div>
+                    </div>
+    
+                        </div>
+                    </div>
+                <% }) %>
+            <div class="review-post">
+            <form action="/publishPost" method="POST">
+                <label>Leave a review: </label><br>
+                <input class="title-text" type="text" name="title" placeholder="Title"><br>
+                <textarea class="textarea-review" id="text" name="text" placeholder="Write comment here..."></textarea>
+                <br>
+                <input type="hidden" name="_method" value="DELETE">
+                <div class="button-delete-publish">
+                    <button type="submit"> Publish a post</button>
+                </div>
+            </form>
+        </div>
+            </section> 
+        </section>
+    </main>
+    
+    
+    <!--========== MAIN JS ==========-->
+    <script src="assets/edu.js"></script>
+<%- include('blocks/footer-main') %>
+</body>
+</html>
+
+<style>
+
+</style>
