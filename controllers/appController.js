@@ -104,17 +104,6 @@ exports.comment_edit_get = async (req, res) => {
     res.render('edit-comment', {reviews: reviews});
 };
 
-// exports.userprofile_get = (req, res) => {
-//     // const username = req.session.username;
-//     // const email = req.session.email;
-//     if (req.session.user) {
-//         // res.render('user-profile', { data : req.session.body });
-//     } else {
-//         res.send("Unauthorize User")
-//         // res.render('user-profile', { user : req.session.username });
-
-//     }
-// };
 exports.profile_get = async (req, res) => {
     const user = await User.findOne({email: req.session.user.email})
     res.render('profile', {user: user})
@@ -293,69 +282,7 @@ exports.ml2 = async (req, res) => {
     res.render('mcq', {variant: neededVar});
 };
 // ====RATING oF USERS=======
-exports.hok_var1 = async (req, res) => {
-    try {
-        const passed = await Passed.find({name: "HOK Variant1"}).sort({scores: -1}).populate('user')
 
-        res.render('hok_var1', {scores: passed})
-    }
-    catch (e) {
-        console.log(e)
-    }
-}
-exports.hok_var2 = async (req, res) => {
-    try {
-        const passed = await Passed.find({name: "HOK Variant2"}).sort({scores: -1}).populate('user')
-
-        res.render('hok_var2', {scores: passed})
-    }
-    catch (e) {
-        console.log(e)
-    }
-}
-exports.hok_var3 = async (req, res) => {
-    try {
-        const passed = await Passed.find({name: "HOK Variant3"}).sort({scores: -1}).populate('user')
-
-        res.render('hok_var3', {scores: passed})
-    }
-    catch (e) {
-        console.log(e)
-    }
-}
-//RL_var
-exports.rl_var1 = async (req, res) => {
-    try {
-        const passed = await Passed.find({name: "RL Variant1"}).sort({scores: -1}).populate('user')
-
-        res.render('rl_var1', {scores: passed})
-    }
-    catch (e) {
-        console.log(e)
-    }
-}
-
-// ML Var
-exports.ml_var1 = async (req, res) => {
-    try {
-        const passed = await Passed.find({name: "ML Variant1"}).sort({scores: -1}).populate('user')
-
-        res.render('ml_var1', {scores: passed})
-    }
-    catch (e) {
-        console.log(e)
-    }
-}
-exports.ml_var2 = async (req, res) => {
-    try {
-        const passed = await Passed.find({name: "ML Variant2"}).sort({scores: -1}).populate('user')
-
-        res.render('ml_var2', {scores: passed})
-    }
-    catch (e) {
-        console.log(e)
-    }
-}
 // =============
    
 exports.check_answers = async (req, res) => {

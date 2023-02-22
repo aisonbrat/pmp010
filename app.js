@@ -1,7 +1,7 @@
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5002;
 const express = require("express");
 const session = require("express-session");
-// const MongoDBStore = require("connect-mongodb-session")(session);
+
 const config = require("config");
 
 const bodyParser = require('body-parser')
@@ -17,14 +17,14 @@ const hasAccess = require('./middleware/hasAccess')
 const connectDB = require("./config/db");
 const mongoURI = config.get("mongoURI");
 
-// const flash = require('connect-flash');
+
 
 
 const app = express();
 
 var path = require('path')
 
-// middlware for contact form
+
 app.use(express.json());
 
 
@@ -36,22 +36,22 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false }); //to analyze text URL-coding data, submit form data from regular forms set to POST) and provide the resulting object (containing keys and values) to req.body.
+var urlencodedParser = bodyParser.urlencoded({ extended: false }); 
 app.use("/public", express.static(path.join(__dirname, '/public')));
 //requests
-app.get('/', (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-    res.render(__dirname + '/views/index.ejs'); //__dirname is to get absolute path to file.
+app.get('/', (req, res) => { 
+    res.render(__dirname + '/views/index.ejs'); 
 })
 
 // ============US PAGE=================
-app.get('/us', (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/us.ejs'); //__dirname is to get absolute path to file.
+app.get('/us', (req, res) => { 
+  res.render(__dirname + '/views/us.ejs');
 })
 
 // ====================================
 
-app.get('/contact', (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-    res.render(__dirname + '/views/contact.ejs'); //__dirname is to get absolute path to file.
+app.get('/contact', (req, res) => { 
+    res.render(__dirname + '/views/contact.ejs'); 
 })
 
 
@@ -61,7 +61,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
     secret: "secret",
-    cookie: {maxAge: 600000000000},
+    cookie: {maxAge: 6000000000000},
     resave: false,
     saveUninitialized: true,
   })
@@ -110,52 +110,33 @@ app.post('/register', isAuth, (req, res) => {
   console.log(req.body);
 })
 
-app.get('/courses', hasAccess, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/courses.ejs'); //__dirname is to get absolute path to file.
+app.get('/courses', hasAccess, (req, res) => { 
+  res.render(__dirname + '/views/courses.ejs'); 
 })
 
-app.get('/ielts-page', isAuth, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/ielts-page.ejs'); //__dirname is to get absolute path to file.
-})
-app.get('/unt', hasAccess, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/unt.ejs'); //__dirname is to get absolute path to file.
-})
-app.get('/support', isAuth, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/support.ejs'); //__dirname is to get absolute path to file.
+app.get('/unt', hasAccess, (req, res) => { 
+  res.render(__dirname + '/views/unt.ejs'); 
 })
 
-app.get('/unt0', isAuth, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/unt0.ejs'); //__dirname is to get absolute path to file.
+app.get('/unt0', isAuth, (req, res) => { 
+  res.render(__dirname + '/views/unt0.ejs'); 
 })
-app.get('/hok', hasAccess, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/hok.ejs'); //__dirname is to get absolute path to file.
+app.get('/hok', hasAccess, (req, res) => { 
+  res.render(__dirname + '/views/hok.ejs'); 
 })
-app.get('/rating', isAdmin, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/rating.ejs'); //__dirname is to get absolute path to file.
+app.get('/rating', isAdmin, (req, res) => { 
+  res.render(__dirname + '/views/rating.ejs'); 
 })
-app.get('/rl', hasAccess, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/rl.ejs'); //__dirname is to get absolute path to file.
+app.get('/rl', hasAccess, (req, res) => { 
+  res.render(__dirname + '/views/rl.ejs'); 
 })
-app.get('/ml', hasAccess, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/ml.ejs'); //__dirname is to get absolute path to file.
+app.get('/ml', hasAccess, (req, res) => { 
+  res.render(__dirname + '/views/ml.ejs'); 
 })
 
-// ------VIDEO-----------
-app.get('/hok-video', isAuth, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/hok-video.ejs'); //__dirname is to get absolute path to file.
-})
-app.get('/ielts-video', isAuth, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/ielts-video.ejs'); //__dirname is to get absolute path to file.
-})
-// ------------
-app.get('/sat-page', isAuth, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/sat-variants.ejs'); //__dirname is to get absolute path to file.
-})
 
 // ======SUB VARIANTS====
-app.get('/sat1', isAuth, appController.sat1)
 
-app.get('/sat2', isAuth, appController.sat2)
 
 app.get('/hok1', isAuth, appController.hok1)
 app.get('/hok2', isAuth, appController.hok2)
@@ -168,29 +149,19 @@ app.get('/ml1', isAuth, appController.ml1)
 app.get('/ml2', isAuth, appController.ml2)
 
 
-app.get('/hok_var1', isAdmin, appController.hok_var1)
-app.get('/hok_var2', isAdmin, appController.hok_var2)
-app.get('/hok_var3', isAdmin, appController.hok_var3)
-
-app.get('/rl_var1', isAdmin, appController.ml_var1)
-
-app.get('/ml_var1', isAdmin, appController.ml_var1)
-app.get('/ml_var2', isAdmin, appController.ml_var2)
 // ============
 
 
-app.get('/result', isAuth, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/result.ejs'); //__dirname is to get absolute path to file.
+app.get('/result', isAuth, (req, res) => { 
+  res.render(__dirname + '/views/result.ejs'); 
 })
-app.get('/admin', isAdmin, (req, res) => { //method send is convenience to send some strings,but there are pretty big size of code, it is not convenience. for this sendFile funciton is better
-  res.render(__dirname + '/views/admin.ejs'); //__dirname is to get absolute path to file.
+app.get('/admin', isAdmin, (req, res) => { 
+  res.render(__dirname + '/views/admin.ejs'); 
 })
 
 app.post('/check-answers/:id', appController.check_answers);
 
-app.get('/passed', appController.passed);
-// app.get('/passed-users', appController.passed_users);
-// app.post('view-passed', isAdmin, appController.view_passed);
+app.get('/passed', appController.passed)
 
 app.get('/review/:id', appController.review);
 
@@ -215,6 +186,6 @@ app.use(isAuth, (req, res, next) => {
 })
 
 
-app.listen(port, console.log("App Running on http://localhost:5000"));
+app.listen(port, console.log("App Running on http://localhost:5002"));
 
 

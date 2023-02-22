@@ -1367,7 +1367,7 @@ line-height: 32px;
      .about-block {
         margin: auto;
         padding-top: 50px;
-        background: #1d2646;
+        background: rgba(21,26,46,255);
         padding-bottom: 50px;
         height: 400px;
      }
@@ -1401,7 +1401,7 @@ line-height: 32px;
         .about-block {
             margin: auto;
             padding-top: 50px;
-            background: #1d2646;
+            background: rgba(21,26,46,255);
             padding-bottom: 50px;
             height: 600px;
          }

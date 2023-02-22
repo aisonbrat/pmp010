@@ -1,5 +1,7 @@
 {
   
-  "mongoURI": "mongodb+srv://Aisultan:Gorifa10@pmp.zdsge.mongodb.net/PMP"
+
+    "mongoURI": "mongodb+srv://Aisultan:Gorifa10@pmp.zdsge.mongodb.net/PMP"
+
   
 }
